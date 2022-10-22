@@ -1,0 +1,37 @@
+{
+    "name": "Bamboo Carbon",
+    "version": "0.1.0",
+    "description": "Tracking Carbon Footprint",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://*.amazon.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.amazon.com/gp/buy/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/bookmark.png",
+          "assets/play.png",
+          "assets/delete.png",
+          "assets/save.png"
+        ],
+        "matches": ["https://*.amazon.com/*"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "Bamboo Carbon Footprint",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
